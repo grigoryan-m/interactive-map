@@ -27,5 +27,16 @@
         });
         var image = L.imageOverlay('src/2x no trace.png', bounds).addTo(map);
         map.fitBounds(bounds);
+
+        function onMapClick(e) {
+            alert("You clicked the map at " + e.latlng);
+        }
+
+        //map.on('click', onMapClick);
+        
+        var markers = [];
+        
+        markers[0] = L.marker([676, 5417]).addTo(map);
+        markers[0].bindPopup("Скаония");
     </script>
 </html>
