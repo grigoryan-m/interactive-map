@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсы валют Eldros</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/currencies.css" />
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <h2>История курса валют Eldros</h2>
+    <div id="charts"></div>
+
+    <script>
+        const sheetId = "1aSzBF6kk2mosfcvXwW0mQoLpjDj0EezBce1EVeaUfGE"; // Вставь ID таблицы
+        const sheetName = "Sheet3"; // Если лист называется иначе, измени
+        const apiKey = "AIzaSyCrEorV-XyBddUTQfBU4TwKguvdRJVoCrE"; // Получи API ключ от Google Sheets
+
+        const colors = ["red", "blue", "yellow", "pink", "black"];
+        const bgcolors = ["rgba(255, 0, 0, 0.1)", "rgba(0, 0, 255, 0.1)", "rgba(255, 255, 100, 0.1)", "rgba(251, 198, 207, 0.1)", "rgba(0, 0, 0, 0.1)"]
+        let i = 0;
+        async function fetchData() {
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            if (!data.values || data.values.length < 2) {
+                console.error("Ошибка загрузки данных");
+                return;
+            }
+
+            const headers = data.values[0]; // Заголовки (названия валют)
+            const rows = data.values.slice(1); // Данные
+
+            const timeLabels = rows.map(row => row[0]); // Метки времени
+            const currencies = {};
+
+            headers.slice(1).forEach((currency, index) => {
+                currencies[currency] = rows.map(row => parseFloat(row[index + 1]) || 0);
+            });
+
+            renderCharts(timeLabels, currencies);
+        }
+
+        function renderCharts(labels, currencies) {
+            const container = document.getElementById("charts");
+            container.innerHTML = ""; // Очищаем перед обновлением
+
+            Object.keys(currencies).forEach(currency => {
+                const canvas = document.createElement("canvas");
+                canvas.id = `chart-${currency}`;
+                container.appendChild(canvas);
+                new Chart(canvas, {
+                    type: "line",
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: `Курс ${currency} к золотой монете`,
+                            data: currencies[currency],
+                            borderColor: colors[i],
+                            backgroundColor: bgcolors[i],
+                            borderWidth: 2,
+                            fill: true,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            x: { },
+                            y: { beginAtZero: false }
+                        }
+                    }
+                });
+                
+                i++;
+            });
+        }
+
+        fetchData(); // Загружаем данные при открытии страницы
+    </script>
+</body>
+</html>
