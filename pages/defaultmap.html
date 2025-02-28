@@ -25,7 +25,7 @@
             maxBounds: bounds,
             maxBoundsViscosity: 1.0
         });
-        var image = L.imageOverlay('../res/2x no trace.png', bounds).addTo(map);
+        var image = L.imageOverlay("../res/eldros.png", bounds).addTo(map);
         map.fitBounds(bounds);
 
         function onMapClick(e) {
@@ -37,6 +37,6 @@
         var markers = [];
         
         markers[0] = L.marker([676, 5417]).addTo(map);
-        markers[0].bindPopup("Скаония");
+        markers[0].bindPopup("<a href='./cities/wriwing.html'>Врайвинг</a>");
     </script>
 </html>
