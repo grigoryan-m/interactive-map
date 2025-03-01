@@ -33,6 +33,7 @@
     </nav>
     <div id="map"></div>
 </body>
+    <script src="../../js/main.js"></script>
     <script>
         var bounds = [[0,0], [4960, 7016]];
         var map = L.map('map', {
@@ -66,8 +67,13 @@
                 return container;
             }
         });
+        function onMapClick(e) {
+            alert("You clicked the map at " + e.latlng);
+        }
+
+        //map.on('click', onMapClick);
         map.addControl(new customControl());
         map.fitBounds(bounds);
+        const street = new ImageMarker(3110, 4200, "../../res/wriwing-pic.jpg");
     </script>
-    <script src="../../js/main.js"></script>
 </html>
