@@ -84,12 +84,25 @@
                     options: {
                         responsive: true,
                         scales: {
-                            x: { },
-                            y: { beginAtZero: false }
+                            x: { 
+                                ticks: { color: "#fff" } // Белый текст на оси X
+                            },
+                            y: { 
+                                ticks: { color: "#fff" }, // Белый текст на оси Y
+                                beginAtZero: false 
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: "#fff" // Белый текст в легенде
+                                }
+                            }
                         }
                     }
+
                 });
-                
+                Chart.defaults.global.defaultFontColor = "#fff";
                 i++;
             });
         }
