@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зутралак, Дотрал</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="../../css/defaultmap.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="burger-menu">
+            <div class="burger-icon" id="burgerIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="menu" id="menu">
+                <ul>
+                    <li><a href="../defaultmap.html">Карта</a></li>
+                    <li><a href="../currencies.html">Валюты</a></li>
+                    <li><a href="../trees.html">Дерево прокачки</a></li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+    <div id="map"></div>
+</body>
+    <script src="../../js/main.js"></script>
+    <script>
+        function Marker(lat, lng, cityName, pageName){
+            let marker = L.marker([lat, lng]).addTo(map);
+                marker.bindPopup("<a href='./cities/" + pageName + ".html'>" + cityName + "</a>");
+        }
+
+        function ImageMarker(lat, lng, imageSrc){
+            let marker = L.marker([lat, lng]).addTo(map);
+                marker.bindPopup("<a href='" + imageSrc + "'><img src='" + imageSrc + "' width='200' height='200' /></a>");
+        }
+        var bounds = [[0,0], [4960, 7016]];
+        var map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -1.9,
+            maxZoom: 0,
+            maxBounds: bounds,
+            maxBoundsViscosity: 1.0
+        });
+        var image = L.imageOverlay('../../res/zutralack.jpg', bounds).addTo(map);
+        var customControl = L.Control.extend({
+            options: {
+                position: "topleft"
+                //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
+            },
+            onAdd: function (map) {
+                var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+
+                container.style.backgroundColor = 'white';
+                container.style.width = '30px';
+                container.style.height = '30px';
+                container.innerHTML = '⬅️';
+                container.style.textAlign = 'center';
+                container.style.cursor = 'pointer';
+                container.style.fontSize = '22px';
+                container.style.display = 'flex';
+                container.style.alignItems = 'center';
+                container.onclick = function(){
+                    window.location.href = "https://grigoryan-m.github.io/interactive-map/pages/defaultmap.html";
+                }
+                return container;
+            }
+        });
+        function onMapClick(e) {
+            alert("You clicked the map at " + e.latlng);
+        }
+
+        //map.on('click', onMapClick);
+        // 2328.850347, 2396.028722
+
+        ImageMarker(2328.850347, 2396.028722, "../../res/zutralack-pic.jpg");
+
+        map.addControl(new customControl());
+        map.fitBounds(bounds);
+    </script>
+</html>

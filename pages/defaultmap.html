@@ -36,18 +36,17 @@
 </body>
 
     <script>
-        class Marker{
-            constructor(lat, lng, cityName, pageName){
-                let marker = L.marker([lat, lng]).addTo(map);
+
+        function Marker(lat, lng, cityName, pageName){
+            let marker = L.marker([lat, lng]).addTo(map);
                 marker.bindPopup("<a href='./cities/" + pageName + ".html'>" + cityName + "</a>");
-            }
         }
-        class ImageMarker{
-            constructor(lat, lng, imageSrc){
-                let marker = L.marker([lat, lng]).addTo(map);
+
+        function ImageMarker(lat, lng, imageSrc){
+            let marker = L.marker([lat, lng]).addTo(map);
                 marker.bindPopup("<a href='" + imageSrc + "'><img src='" + imageSrc + "' width='200' height='200' /></a>");
-            }
         }
+
 
         var bounds = [[0,0], [4000, 8000]];
         var map = L.map('map', {
@@ -60,7 +59,7 @@
 
 
 
-        var image = L.imageOverlay("../res/eldros.png", bounds).addTo(map);
+        var image = L.imageOverlay("../res/eldros.jpg", bounds).addTo(map);
         map.fitBounds(bounds);
 
         function onMapClick(e) {
@@ -68,12 +67,10 @@
         }
 
         //map.on('click', onMapClick);
-        //1389 1994
-        const wriwing = new Marker(676, 5417, "Врайвинг", "wriwing");
-        const zunitrulat = new Marker(1389, 1994, "Зунитрулат", "zunitrulat");
-
-
-        
+        //1128 2268
+        Marker(676, 5417, "Врайвинг", "wriwing");
+        Marker(1389, 1994, "Зунитрулат", "zunitrulat");
+        Marker(1128, 2268, "Зутралак", "zutralack");
 
     </script>
     
