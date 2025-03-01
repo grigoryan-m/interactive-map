@@ -23,8 +23,11 @@
             minZoom: -2.5,
             maxZoom: 0,
             maxBounds: bounds,
-            maxBoundsViscosity: 1.0
+            maxBoundsViscosity: 0.5
         });
+
+
+
         var image = L.imageOverlay("../res/eldros.png", bounds).addTo(map);
         map.fitBounds(bounds);
 

@@ -26,6 +26,30 @@
             maxBoundsViscosity: 1.0
         });
         var image = L.imageOverlay('../../res/wriwing.jpg', bounds).addTo(map);
+        var customControl = L.Control.extend({
+            options: {
+                position: "topleft"
+                //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
+            },
+            onAdd: function (map) {
+                var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+
+                container.style.backgroundColor = 'white';
+                container.style.width = '30px';
+                container.style.height = '30px';
+                container.innerHTML = '⬅️';
+                container.style.textAlign = 'center';
+                container.style.cursor = 'pointer';
+                container.style.fontSize = '22px';
+                container.style.display = 'flex';
+                container.style.alignItems = 'center';
+                container.onclick = function(){
+                    window.location.href = "https://grigoryan-m.github.io/interactive-map/pages/defaultmap.html";
+                }
+                return container;
+            }
+        });
+        map.addControl(new customControl());
         map.fitBounds(bounds);
     </script>
 </html>
