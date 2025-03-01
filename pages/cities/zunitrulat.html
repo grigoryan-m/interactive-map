@@ -35,17 +35,14 @@
 </body>
     <script src="../../js/main.js"></script>
     <script>
-        class Marker{
-            constructor(lat, lng, cityName, pageName){
-                let marker = L.marker([lat, lng]).addTo(map);
+        function Marker(lat, lng, cityName, pageName){
+            let marker = L.marker([lat, lng]).addTo(map);
                 marker.bindPopup("<a href='./cities/" + pageName + ".html'>" + cityName + "</a>");
-            }
         }
-        class ImageMarker{
-            constructor(lat, lng, imageSrc){
-                let marker = L.marker([lat, lng]).addTo(map);
+
+        function ImageMarker(lat, lng, imageSrc){
+            let marker = L.marker([lat, lng]).addTo(map);
                 marker.bindPopup("<a href='" + imageSrc + "'><img src='" + imageSrc + "' width='200' height='200' /></a>");
-            }
         }
         var bounds = [[0,0], [4960, 7016]];
         var map = L.map('map', {
@@ -86,7 +83,7 @@
         //map.on('click', onMapClick);
         // 1642, 1705
 
-        const street = new ImageMarker(1642, 1705, "../../res/zunitrulat-pic.jpg");
+        ImageMarker(1642, 1705, "../../res/zunitrulat-pic.jpg");
         map.addControl(new customControl());
         map.fitBounds(bounds);
     </script>
