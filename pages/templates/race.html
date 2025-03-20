@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Людрок</title>
+    <link rel="stylesheet" href="/css/race.css">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+</head>
+<body>
+    <div class="container">
+        <div class="center">
+            <h2>{name}</h2>
+            <p class="cite"><cite>{cite}</cite></p>
+            <b class="author" for="cite">{author}</b>
+            <p class="description">{description}</p>
+    
+            <!-- Способности будут вставляться здесь -->
+            <div class="abilities">
+                <!-- Каждый ability будет добавлен динамически -->
+            </div>
+    
+            <!-- Галерея -->
+            <div>
+                <h3 class="galery-name">Галерея</h3>
+                <hr />
+                <div class="pictures">
+                    <!-- Картинки будут добавлены динамически -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Функция для загрузки данных с Google Sheets
+async function fetchDataFromSheet(name) {
+    const sheetId = '1aSzBF6kk2mosfcvXwW0mQoLpjDj0EezBce1EVeaUfGE';  // Замените на ваш ID таблицы
+    const apiKey = 'AIzaSyBet-4RBihA9gLkAm_dlTQPqHmaErfcuGE';     // Замените на ваш API ключ
+    const range = 'Races';              // Диапазон данных в таблице (например, лист "Расы")
+
+    // URL для запроса данных из Google Sheets
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+    
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.values; // Возвращает все строки из таблицы
+}
+
+// Функция для обновления HTML с данными из таблицы
+async function updatePage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name'); // Получаем имя из параметра GET
+
+    const data = await fetchDataFromSheet(name);
+    
+    // Поиск строки, которая соответствует переданному name
+    const row = data.find(row => row[0].toLowerCase() === name.toLowerCase());
+
+    if (row) {
+        // Заполняем данные на странице
+        document.querySelector('h2').textContent = row[1];   // {name}
+        document.querySelector('.cite cite').textContent = row[2]; // {cite}
+        document.querySelector('.author').textContent = row[3]; // {author}
+        document.querySelector('.description').textContent = row[4]; // {description}
+
+        // Обрабатываем способности (abilities)
+        let abilityCount = 1;
+        while (row[`Умение${abilityCount}_название`]) {
+            const abilityDiv = document.createElement('div');
+            const abilityName = document.createElement('h3');
+            abilityName.textContent = row[`ability${abilityCount}_name`];
+            abilityDiv.appendChild(abilityName);
+            
+            const abilityDesc = document.createElement('p');
+            abilityDesc.textContent = row[`Умение${abilityCount}_описание`];
+            abilityDiv.appendChild(abilityDesc);
+            
+            document.querySelector('.center').appendChild(abilityDiv);
+            abilityCount++;
+        }
+
+        // Обрабатываем галерею (pictures)
+        let pictureCount = 1;
+        const picturesDiv = document.querySelector('.pictures');
+        while (row[`pic${pictureCount}`]) {
+            const img = document.createElement('img');
+            img.src = `/res/${row[`карт${pictureCount}`]}`;
+            picturesDiv.appendChild(img);
+            pictureCount++;
+        }
+    }
+}
+
+// Запуск обновления страницы при загрузке
+window.onload = updatePage;
+
+    </script>    
+</body>
+
+</html>
