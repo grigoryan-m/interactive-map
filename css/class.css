@@ -1,0 +1,58 @@
+section {
+  font-weight: 400;
+  height: auto;
+  font-family: "Alegreya SC", serif;
+  padding-top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section .tree {
+  padding-bottom: 10px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+section .tree .level {
+  display: flex;
+  gap: 5px;
+}
+section .tree .level .ability {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+section .tree .level .ability:hover {
+  box-shadow: 0px 0px 10px black;
+}
+section .tree .level .ability p {
+  position: absolute;
+  bottom: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(146, 112, 50);
+  color: white;
+  padding: 8px 12px;
+  font-size: 20px;
+  border-radius: 5px;
+  white-space: normal;
+  max-width: 900px;
+  min-width: 250px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s ease-in-out;
+  pointer-events: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border: 3px solid rgb(101, 79, 39);
+}
+section .tree .level .ability:hover p {
+  opacity: 1;
+  visibility: visible;
+}
+section .tree .level .ability img {
+  width: 100%;
+}/*# sourceMappingURL=class.css.map */
