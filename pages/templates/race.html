@@ -55,40 +55,72 @@ async function updatePage() {
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get('name'); // Получаем имя из параметра GET
 
+    if (!name) {
+        console.error("Ошибка: параметр 'name' отсутствует в URL");
+        return;
+    }
+
     const data = await fetchDataFromSheet(name);
-    
+    const headers = data[0]; // Заголовки колонок
+    if (!data || !Array.isArray(data)) {
+        console.error("Ошибка: данные из Google Sheets не загружены или имеют неверный формат", data);
+        return;
+    }
+    console.log("Заголовки из таблицы:", headers);
     // Поиск строки, которая соответствует переданному name
-    const row = data.find(row => row[0].toLowerCase() === name.toLowerCase());
+    const row = data.find(row => row[0] && row[0].toLowerCase() === name.toLowerCase());
+
+    if (!row) {
+        console.error(`Ошибка: раса '${name}' не найдена в таблице`);
+        return;
+    }
+
 
     if (row) {
         // Заполняем данные на странице
         document.querySelector('h2').textContent = row[1];   // {name}
         document.querySelector('.cite cite').textContent = row[2]; // {cite}
         document.querySelector('.author').textContent = row[3]; // {author}
-        document.querySelector('.description').textContent = row[4]; // {description}
+        document.querySelector('.description').innerHTML = row[4].replace(/\n/g, '<br>'); // {description}
 
         // Обрабатываем способности (abilities)
-        let abilityCount = 1;
-        while (row[`Умение${abilityCount}_название`]) {
-            const abilityDiv = document.createElement('div');
-            const abilityName = document.createElement('h3');
-            abilityName.textContent = row[`ability${abilityCount}_name`];
-            abilityDiv.appendChild(abilityName);
-            
-            const abilityDesc = document.createElement('p');
-            abilityDesc.textContent = row[`Умение${abilityCount}_описание`];
-            abilityDiv.appendChild(abilityDesc);
-            
-            document.querySelector('.center').appendChild(abilityDiv);
-            abilityCount++;
-        }
+        let abilityIndex = 1;
+        const centerDiv = document.querySelector('.center');
+        while (headers.includes(`Умение${abilityIndex}_название`)) {
+            const abilityNameIndex = headers.indexOf(`Умение${abilityIndex}_название`);
+            const abilityDescIndex = headers.indexOf(`Умение${abilityIndex}_описание`);
+
+            if (abilityNameIndex !== -1 && abilityDescIndex !== -1) {
+                const abilityDiv = document.querySelector('.abilities');
+
+                const abilityName = document.createElement('h3');
+
+                abilityName.textContent = row[abilityNameIndex];
+                abilityName.classList = "ability-name";
+                abilityDiv.appendChild(abilityName);
+                abilityDiv.appendChild(document.createElement('hr'));
+                const abilityDesc = document.createElement('p');
+                abilityDesc.innerHTML = row[abilityDescIndex].replace(/\n/g, '<br>');
+                abilityDesc.classList = "ability-description";
+                abilityDiv.appendChild(abilityDesc);
+            }
+            else{
+                console.log("error");
+            }
+
+            abilityIndex++;
+    }
 
         // Обрабатываем галерею (pictures)
         let pictureCount = 1;
         const picturesDiv = document.querySelector('.pictures');
-        while (row[`pic${pictureCount}`]) {
+        while (headers.includes(`Карт${pictureCount}`)) {
+            const pictureIndex = headers.indexOf(`Карт${pictureCount}`);
+            if(!row[pictureIndex]){
+                break;
+            }
             const img = document.createElement('img');
-            img.src = `/res/${row[`карт${pictureCount}`]}`;
+            img.src = `/interactive-map/res/${row[pictureIndex]}`;
             picturesDiv.appendChild(img);
             pictureCount++;
         }
