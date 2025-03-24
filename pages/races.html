@@ -14,17 +14,61 @@
 <body>
     <h1>Расы Элдроса</h1>
     <hr/>
-    <div class="container">
-        <a href="/pages/races/ludrock.html">
-            <div class="race">
-                <h4>Людрок</h4>
-                <img src="/res/races/ludrock.png" height="150"/>
-            </div>
-        </a>
-        <div class="race">
-            <h4>Расаарн</h4>
-            <img src="/res/races/rasaarn.png" height="150" />
-        </div>
-    </div>
+    <div class="container"></div> <!-- Контейнер для загрузки рас -->
+
+    <script>
+        async function fetchDataFromSheet() {
+            const sheetId = '1aSzBF6kk2mosfcvXwW0mQoLpjDj0EezBce1EVeaUfGE';  // ID вашей таблицы
+            const apiKey = 'AIzaSyBet-4RBihA9gLkAm_dlTQPqHmaErfcuGE';  // Ваш API-ключ
+            const sheetName = 'Races'; // Название листа
+
+            const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetName}?key=${apiKey}`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data.values; // Возвращает массив данных
+            } catch (error) {
+                console.error("Ошибка загрузки данных из Google Sheets:", error);
+                return [];
+            }
+        }
+
+        async function updatePage() {
+            const data = await fetchDataFromSheet();
+            if (!data || !Array.isArray(data) || data.length < 2) {
+                console.error("Ошибка: данные из Google Sheets не загружены или имеют неверный формат", data);
+                return;
+            }
+
+            const headers = data[0]; // Первая строка — заголовки
+            const container = document.querySelector(".container");
+
+            data.slice(1).forEach(row => { // Пропускаем заголовки
+                if (row[0] && row[1]) { // Проверяем, что есть ID и название расы
+                    const link = document.createElement("a");
+                    link.href = `/pages/templates/race.html?name=${row[0]}`;
+
+                    const outerDiv = document.createElement("div");
+                    outerDiv.classList.add("race");
+
+                    const h = document.createElement("h4");
+                    h.textContent = row[1]; // Название расы
+
+                    const img = document.createElement("img");
+                    img.src = `/res/races/${row[0]}-icon.png`;
+                    img.height = 150;
+                    img.alt = row[1];
+
+                    outerDiv.appendChild(h);
+                    outerDiv.appendChild(img);
+                    link.appendChild(outerDiv);
+                    container.appendChild(link);
+                }
+            });
+        }
+
+        window.onload = updatePage;
+    </script>
 </body>
 </html>
