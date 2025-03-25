@@ -92,3 +92,8 @@ section .tree .level .ability img {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
 }/*# sourceMappingURL=class.css.map */
+
+section .tree .level .active img{
+  filter: grayscale(0%) !important;
+  -webkit-filter: grayscale(0%) !important;
+}
