@@ -18,16 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/pages/defaultmap.html">Карта</a></li>
-                <li><a href="/pages/bestiary.html">Бестиарий</a></li>
-                <li><a href="">Дерево Прокачки</a></li>
-                <li><a href="/pages/currencies.html">Валюты</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <div id="map"></div>
 </body>
@@ -54,7 +44,30 @@
             maxBoundsViscosity: 1.0
         });
 
+        var customControl = L.Control.extend({
+            options: {
+                position: "topleft"
+                //control position - allowed: 'topleft', 'topright', 'bottomleft', 'bottomright'
+            },
+            onAdd: function (map) {
+                var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
 
+                container.style.backgroundColor = 'white';
+                container.style.width = '30px';
+                container.style.height = '30px';
+                container.innerHTML = '⬅️';
+                container.style.textAlign = 'center';
+                container.style.cursor = 'pointer';
+                container.style.fontSize = '22px';
+                container.style.display = 'flex';
+                container.style.alignItems = 'center';
+                container.onclick = function(){
+                    window.location.href = "https://grigoryan-m.github.io/interactive-map/pages/index.html";
+                }
+                return container;
+            }
+        });
+        map.addControl(new customControl());
 
         var image = L.imageOverlay("../res/eldros.jpg", bounds).addTo(map);
         map.fitBounds(bounds);
@@ -63,12 +76,39 @@
             alert("You clicked the map at " + e.latlng);
         }
 
-        //map.on('click', onMapClick);
-        //1128 2268
-        Marker(676, 5417, "Врайвинг", "wriwing");
-        Marker(1389, 1994, "Зунитрулат", "zunitrulat");
-        Marker(1128, 2268, "Зутралак", "zutralack");
+        // Замените на свой API-ключ и ID таблицы
+        const API_KEY = 'AIzaSyBet-4RBihA9gLkAm_dlTQPqHmaErfcuGE';
+        const SHEET_ID = '1aSzBF6kk2mosfcvXwW0mQoLpjDj0EezBce1EVeaUfGE';
+        const SHEET_NAME = 'Markers'; // Имя листа в таблице
 
+        // URL для запроса данных
+        const SHEET_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
+
+
+        map.on('click', onMapClick);
+        Marker(676, 5417, "Врайвинг", "wriwing");
+        //Marker(1389, 1994, "Зунитрулат", "zunitrulat");
+        //Marker(1128, 2268, "Зутралак", "zutralack");
+        async function loadMarkers() {
+            try {
+                const response = await fetch(SHEET_URL);
+                const data = await response.json();
+                console.log("Полученные данные:", data); // Логируем данные
+                if (!data.values) throw new Error('Нет данных в таблице');
+
+                // Обработка строк (пропуская заголовки)
+                data.values.forEach(row => {
+                    const [y, x, name, id] = row;
+                    if (x && y && name) {
+                        Marker(parseFloat(y), parseFloat(x), name, id);
+                    }
+                });
+            } catch (error) {
+                console.error('Ошибка загрузки данных:', error);
+            }
+        }
+
+        loadMarkers();
     </script>
     
     <script src="../js/main.js"></script>
