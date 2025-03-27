@@ -8,25 +8,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/class.css">
+    <script src="/js/header.js"></script>
     <title>Воин</title>
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/pages/defaultmap.html">Карта</a></li>
-                <li><a href="/pages/">Бестиарий</a></li>
-                <li><a href="">Дерево Прокачки</a></li>
-                <li><a href="/pages/currencies.html">Валюты</a></li>
-            </ul>
-        </nav>
-    </header>
+<body data-class="fighter">
 
         <div class="center">
             <section class="">
                 
             <h2>Воин</h2>
             <div class="tree">
+                <h4>Описания веток</h4>
+                <div class="level">
+                    <div class="ability"><img src="/res/icons/questionmark.jpg" alt="">
+                    <p>Воинское лечение - связано с нанесением себе урона, чтобы лечить союзников или усиливать свои атаки.</p></div>
+                    <div class="ability">
+                        <img src="/res/icons/questionmark.jpg" alt="">
+                        <p>Максимальный урон - нанесение максимального урона и усиливание своих атак.</p>
+                    </div>
+                    <div class="ability">
+                        <img src="/res/icons/questionmark.jpg" alt="">
+                        <p>Танк - повышение КД себе и союзникам, много хитов и спасение союзников.</p>
+                    </div>
+                </div>
+                <hr/>
                 <div class="level" data-level="0">
                     <div class="ability" data-index="0"><img src="/res/icons/Blood Boil.png" alt="">
                     <p>Кровь вместо стали – Раз в ход можешь потратить 1/3 своих максимальных хитов вместо броска атаки, чтобы автоматически попасть по врагу.</p></div>
@@ -190,7 +195,7 @@
                     </div>
                     <div class="ability" data-index="35">
                         <img src="/res/icons/AspectOfTheViper.png" alt="">
-                        <p>Вечный дозор – Когда враг перемещается в пределах 5 футов от тебя, можешь использовать реакцию, чтобы совершить атаку даже если он использует отход или все еще находится в области твоей атаки.</p>
+                        <p>Вечный дозор – Когда враг перемещается в пределах 5 футов от тебя, можешь использовать реакцию, чтобы совершить атаку по нему.</p>
                     </div>
                 </div>
                 <div class="level" data-level="12">
@@ -316,63 +321,56 @@
 <script src="/js/main.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const levels = document.querySelectorAll(".level");
-    let skillsData = Array(20).fill(0); // 20 уровней, по умолчанию 0
-    
-    // Загружаем сохранённые данные
-    function loadSkills() {
-        const savedData = localStorage.getItem("skills");
-        if (savedData) {
-            skillsData = savedData.split("").map(Number);
-            updateUI();
-        }
+    const className = document.body.dataset.class; // Убедись, что <body> имеет data-class="warrior"
+    if (!className) {
+        console.error("Не указан класс персонажа!");
+        return;
     }
 
-    // Обновляем UI на основе данных
+    const storageKey = `skillTree_${className}`;
+    let skills = localStorage.getItem(storageKey) ? localStorage.getItem(storageKey).split("").map(Number) : new Array(20).fill(0);
+
+    const levels = document.querySelectorAll(".level");
+
+    // Обновляет UI на основе текущих данных
     function updateUI() {
         levels.forEach((level, levelIndex) => {
             level.querySelectorAll(".ability").forEach((ability, abilityIndex) => {
-                if (skillsData[levelIndex] === abilityIndex + 1) {
-                    ability.classList.add("active");
-                } else {
-                    ability.classList.remove("active");
-                }
+                ability.classList.toggle("active", skills[levelIndex] === abilityIndex + 1);
             });
         });
     }
 
-    // Обработчик кликов и касаний по умениям
-    function handleSkillSelect(levelIndex, abilityIndex, ability) {
-        if (skillsData[levelIndex] === abilityIndex + 1) {
-            // Если уже выбрано это умение, убираем его
-            skillsData[levelIndex] = 0;
+    // Выбор или отмена выбора умения
+    function handleSkillSelect(levelIndex, abilityIndex) {
+        if (skills[levelIndex] === abilityIndex + 1) {
+            skills[levelIndex] = 0; // Снимаем выбор
         } else {
-            // Иначе выбираем новое умение
-            skillsData[levelIndex] = abilityIndex + 1;
+            skills[levelIndex] = abilityIndex + 1; // Выбираем новое умение
         }
         updateUI();
     }
 
+    // Назначаем обработчики событий на каждое умение
     levels.forEach((level, levelIndex) => {
         level.querySelectorAll(".ability").forEach((ability, abilityIndex) => {
-            ability.addEventListener("click", () => handleSkillSelect(levelIndex, abilityIndex, ability));
+            ability.addEventListener("click", () => handleSkillSelect(levelIndex, abilityIndex));
             ability.addEventListener("touchend", (event) => {
                 event.preventDefault(); // Убирает задержку на мобильных
-                handleSkillSelect(levelIndex, abilityIndex, ability);
+                handleSkillSelect(levelIndex, abilityIndex);
             });
         });
     });
 
-    // Сохранение данных в localStorage
+    // Кнопка "Сохранить"
     document.getElementById("save").addEventListener("click", () => {
-        localStorage.setItem("skills", skillsData.join(""));
+        localStorage.setItem(storageKey, skills.join("")); // Сохраняем как строку
         alert("Умения сохранены!");
     });
 
-    // Загружаем сохранённые умения при запуске
-    loadSkills();
+    // Загружаем умения при старте
+    updateUI();
 });
-
 </script>
 </body>
 </html>
