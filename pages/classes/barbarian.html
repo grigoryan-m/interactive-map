@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF–8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/class.css">
+    <script src="/js/header.js"></script>
+    <title>Варвар</title>
+</head>
+<body data-class="barbarian">
+
+        <div class="center">
+            <section class="">
+                
+            <h2>Варвар</h2>
+            <div class="tree">
+                <h4>Описания веток</h4>
+                <div class="level">
+                    <div class="ability"><img src="/res/icons/questionmark.jpg" alt="">
+                    <p>Ярость - усиление боевых возможностей в состоянии ярости. </br><i>Любое умение этой ветки, упоминающее ярость, добавляет Варвару возможность раз в бой бонусным действием включать ярость на 3 раунда.</i></p></div>
+                    <div class="ability">
+                        <img src="/res/icons/questionmark.jpg" alt="">
+                        <p>Выносливость - пассивная живучесть и сопротивления</p>
+                    </div>
+                    <div class="ability">
+                        <img src="/res/icons/questionmark.jpg" alt="">
+                        <p>Боевой инстинкт - животные рефлексы и тактическое чутьё</p>
+                    </div>
+                </div>
+                <hr/>
+                <!-- Уровень 1 -->
+<div class="level" data-level="1">
+    <div class="ability" data-index="0">
+        <img src="/res/icons/Ability_Warrior_BattleShout.png" alt="">
+        <p><strong>Первый гнев</strong> – В ярости получаешь +2 к урону, но -1 к КД.</p>
+    </div>
+    <div class="ability" data-index="1">
+        <img src="/res/icons/Ability_Racial_Avatar.png" alt="">
+        <p><strong>Железная кожа</strong> – Бонусное ОЗ увеличивается на 50% при подсчёте максимального здоровья.</p>
+    </div>
+    <div class="ability" data-index="2">
+        <img src="/res/icons/Ability_Warrior_Revenge.png" alt="">
+        <p><strong>Звериный нюх</strong> – Преимущество на проверки Восприятия для обнаружения засад или скрытых врагов.</p>
+    </div>
+</div>
+
+<!-- Уровень 2 -->
+<div class="level" data-level="2">
+    <div class="ability" data-index="3">
+        <img src="/res/icons/Ability_BackStab.png" alt="">
+        <p><strong>Разъярённый натиск</strong> – В ярости можешь совершить дополнительную атаку, но следующая атака против тебя имеет преимущество.</p>
+    </div>
+    <div class="ability" data-index="4">
+        <img src="/res/icons/Ability_Sap.png" alt="">
+        <p><strong>Каменные мускулы</strong> – Сопротивление дробящему урону вне ярости.</p>
+    </div>
+    <div class="ability" data-index="5">
+        <img src="/res/icons/Ability_ThunderClap.png" alt="">
+        <p><strong>Инстинкт охотника</strong> – Первая атака в бою против нового противника совершается с преимуществом.</p>
+    </div>
+</div>
+
+<!-- Уровень 3 -->
+<div class="level" data-level="3">
+    <div class="ability" data-index="6">
+        <img src="/res/icons/Spell_Shadow_LifeDrain.png" alt="">
+        <p><strong>Кровавая пена</strong> – В ярости критические попадания восстанавливают 1к6 ОЗ.</p>
+    </div>
+    <div class="ability" data-index="7">
+        <img src="/res/icons/Ability_Racial_BearForm.png" alt="">
+        <p><strong>Медвежья живучесть</strong> – Можешь игнорировать эффекты кровотечения и боли до конца боя (1/день).</p>
+    </div>
+    <div class="ability" data-index="8">
+        <img src="/res/icons/Ability_Hunter_SwiftStrike.png" alt="">
+        <p><strong>Рефлексы зверя</strong> – +2 к инициативе и спасброскам Ловкости.</p>
+    </div>
+</div>
+
+<!-- Уровень 4 -->
+<div class="level" data-level="4">
+    <div class="ability" data-index="9">
+        <img src="/res/icons/Vivify.png" alt="">
+        <p><strong>Вихрь ярости</strong> – В ярости можешь атаковать всех врагов в радиусе 5 футов (урон -1к4, 1/бой).</p>
+    </div>
+    <div class="ability" data-index="10">
+        <img src="/res/icons/Ability_Racial_Ultravision.png" alt="">
+        <p><strong>Нечеловеческая стойкость</strong> – Преимущество на спасброски против ядов и болезней.</p>
+    </div>
+    <div class="ability" data-index="11">
+        <img src="/res/icons/Spell_Shadow_SummonFelHunter.png" alt="">
+        <p><strong>Чувство слабости</strong> – Видишь кровоточащих врагов сквозь препятствия в радиусе 30 футов.</p>
+    </div>
+</div>
+
+<!-- Уровень 5 -->
+<div class="level" data-level="5">
+    <div class="ability" data-index="12">
+        <img src="/res/icons/SurgeOfLight.png" alt="">
+        <p><strong>Неистовство берсерка</strong> – Можешь продлить ярость на +1 раунд, но получаешь уровень истощения после боя.</p>
+    </div>
+    <div class="ability" data-index="13">
+        <img src="/res/icons/Ability_Racial_ShadowMeld.png" alt="">
+        <p><strong>Стальное тело</strong> – Критические попадания по тебе считаются обычными атаками.</p>
+    </div>
+    <div class="ability" data-index="14">
+        <img src="/res/icons/Spell_Shadow_ShadowWordPain.png" alt="">
+        <p><strong>Звериная ярость</strong> – При падении ниже 50% ОЗ получаешь +2 к силе и телосложению до конца боя.</p>
+    </div>
+</div>
+<!-- Уровень 6 -->
+<div class="level" data-level="6">
+    <div class="ability" data-index="15">
+        <img src="/res/icons/Ability_Racial_BloodRage.png" alt="">
+        <p><strong>Кровавый туман</strong> – В ярости критические удары накладывают <strong>тяжёлое кровотечение (1d6/раунд)</strong>. Длительность ярости +1 раунд.</p>
+    </div>
+    <div class="ability" data-index="16">
+        <img src="/res/icons/INV_Shoulder_23.png" alt="">
+        <p><strong>Шкура тролля</strong> – Вне боя восстанавливаешь 1d6 ОЗ каждые 10 минут. Кровотечения заживают в 2 раза быстрее.</p>
+    </div>
+    <div class="ability" data-index="17">
+        <img src="/res/icons/Ability_Hunter_Pet_Vulture.png" alt="">
+        <p><strong>Чувство слабого</strong> – Видишь всех существ с ОЗ ниже 50% в радиусе 60 футов (свечение красным).</p>
+    </div>
+</div>
+
+<!-- Уровень 7 -->
+<div class="level" data-level="7">
+    <div class="ability" data-index="18">
+        <img src="/res/icons/Ability_Druid_Enrage.png" alt="">
+        <p><strong>Рёв раненого зверя</strong> – При падении ниже 30% ОЗ автоматически входишь в ярость (даже если уже использовал). Кровоточащие враги получают -2 к спасброскам против страха.</p>
+    </div>
+    <div class="ability" data-index="19">
+        <img src="/res/icons/INV_Chest_Leather_09.png" alt="">
+        <p><strong>Стальные сухожилия</strong> – Иммунитет к эффектам замедления. Кровотечения на тебе наносят на 50% меньше урона (округляя вниз).</p>
+    </div>
+    <div class="ability" data-index="20">
+        <img src="/res/icons/Ability_Rogue_Rupture.png" alt="">
+        <p><strong>Удар по жилам</strong> – Раз в бой можешь попытаться усилить кровотечение врага (если уже есть): урон увеличивается на одну ступень (1d4→1d6→1d8).</p>
+    </div>
+</div>
+
+<!-- Уровень 8 -->
+<div class="level" data-level="8">
+    <div class="ability" data-index="21">
+        <img src="/res/icons/Ability_Warrior_InnerRage.png" alt="">
+        <p><strong>Ярость скорпиона</strong> – В ярости можешь игнорировать эффекты <strong>кровотечения</strong> и боли. При получении урона от кровотечения получаешь +2 к следующей атаке.</p>
+    </div>
+    <div class="ability" data-index="22">
+        <img src="/res/icons/Spell_Shadow_UnholyFrenzy.png" alt="">
+        <p><strong>Проклятая живучесть</strong> – Можешь сознательно усилить своё кровотечение для: +1d8 к урону, но -1d4 ОЗ/раунд (можно отменить действием).</p>
+    </div>
+    <div class="ability" data-index="23">
+        <img src="/res/icons/Ability_Hunter_EagleEye.png" alt="">
+        <p><strong>Звериное чутьё</strong> – Преимущество на проверки Восприятия против кровоточащих существ в радиусе 1 мили.</p>
+    </div>
+</div>
+
+<!-- Уровень 9 -->
+<div class="level" data-level="9">
+    <div class="ability" data-index="24">
+        <img src="/res/icons/INV_Misc_Bone_09.png" alt="">
+        <p><strong>Вихрь плоти</strong> – В ярости при убийстве кровоточащего врага все существа в радиусе 5 футов получают <strong>лёгкое кровотечение (1d4)</strong>.</p>
+    </div>
+    <div class="ability" data-index="25">
+        <img src="/res/icons/INV_Misc_Bone_08.png" alt="">
+        <p><strong>Несокрушимый</strong> – Если урон должен убить тебя, но осталось кровотечение – остаёшься с 1 ОЗ (1/день).</p>
+    </div>
+    <div class="ability" data-index="26">
+        <img src="/res/icons/Ability_Hunter_SniperShot.png" alt="">
+        <p><strong>Метка охотника</strong> – Можешь "пометить" одного кровоточащего врага: все атаки по нему совершаются с +2 к попаданию.</p>
+    </div>
+</div>
+
+<!-- Уровень 10 -->
+<div class="level" data-level="10">
+    <div class="ability" data-index="27">
+        <img src="/res/icons/INV_Misc_Head_Dragon_01.png" alt="">
+        <p><strong>Кровавая баня</strong> – В ярости восстанавливаешь ОЗ, равные урону от <strong>кровотечений</strong>, которые ты нанёс в этом бою (макс. 10 ОЗ/раунд).</p>
+    </div>
+    <div class="ability" data-index="28">
+        <img src="/res/icons/INV_Jewelry_Talisman_08.png" alt="">
+        <p><strong>Плоть бога</strong> – Критические попадания по тебе не вызывают кровотечений. Раз в день можешь очистить все кровотечения у союзников в радиусе 30 футов.</p>
+    </div>
+    <div class="ability" data-index="29">
+        <img src="/res/icons/Ability_Hunter_Pet_Cat.png" alt="">
+        <p><strong>Рывок хищника</strong> – Если враг начинает ход с кровотечением, можешь реакцией переместиться к нему на 15 футов.</p>
+    </div>
+</div>
+<!-- Уровень 10 -->
+<div class="level" data-level="10">
+    <div class="ability" data-index="27">
+        <img src="/res/icons/INV_Misc_Cape_18.png" alt="">
+        <p><strong>Берсерк</strong> - В ярости получаешь +10фт к скорости передвижения и +1 к КД. Длительность ярости +2 раунда.</p>
+    </div>
+    <div class="ability" data-index="28">
+        <img src="/res/icons/INV_Belt_15.png" alt="">
+        <p><strong>Железная воля</strong> - Преимущество на спасброски против очарования и страха.</p>
+    </div>
+    <div class="ability" data-index="29">
+        <img src="/res/icons/Ability_Hunter_SwiftStrike.png" alt="">
+        <p><strong>Рефлексы хищника</strong> - Можешь реакцией совершить атаку по существу, которое попыталось тебя атаковать (1/бой).</p>
+    </div>
+</div>
+
+<!-- Уровень 11 -->
+<div class="level" data-level="11">
+    <div class="ability" data-index="30">
+        <img src="/res/icons/Ability_Warrior_Revenge.png" alt="">
+        <p><strong>Мстительный удар</strong> - После получения урона следующая атака наносит +2d6 урона.</p>
+    </div>
+    <div class="ability" data-index="31">
+        <img src="/res/icons/INV_Shoulder_23.png" alt="">
+        <p><strong>Титановое телосложение</strong> - Максимальное ОЗ увеличивается на 10%.</p>
+    </div>
+    <div class="ability" data-index="32">
+        <img src="/res/icons/Ability_Hunter_Pet_Bear.png" alt="">
+        <p><strong>Звериная интуиция</strong> - Нельзя застать врасплох. Всегда действуешь в первый раунд боя.</p>
+    </div>
+</div>
+
+<!-- Уровень 12 -->
+<div class="level" data-level="12">
+    <div class="ability" data-index="33">
+        <img src="/res/icons/Ability_Warrior_SavageBlow.png" alt="">
+        <p><strong>Сокрушительный удар</strong> - Один раз в бой можешь совершить атаку с двойным уроном.</p>
+    </div>
+    <div class="ability" data-index="34">
+        <img src="/res/icons/INV_Gauntlets_26.png" alt="">
+        <p><strong>Несокрушимость</strong> - При падении ниже 25% ОЗ получаешь сопротивление всем видам урона на 1 раунд (1/день).</p>
+    </div>
+    <div class="ability" data-index="35">
+        <img src="/res/icons/Ability_Hunter_BeastTraining.png" alt="">
+        <p><strong>Звериный рык</strong> - Все враги в радиусе 10 футов получают -2 к броскам атаки до конца твоего следующего хода (1/бой).</p>
+    </div>
+</div>
+
+<!-- Уровень 13 -->
+<div class="level" data-level="13">
+    <div class="ability" data-index="36">
+        <img src="/res/icons/INV_Misc_MonsterClaw_04.png" alt="">
+        <p><strong>Вихрь смерти</strong> - В ярости можешь атаковать всех врагов в радиусе 5 футов (1/бой).</p>
+    </div>
+    <div class="ability" data-index="37">
+        <img src="/res/icons/INV_Chest_Plate16.png" alt="">
+        <p><strong>Адамантиновая броня</strong> - Критические попадания по тебе наносят в два раза меньше урона.</p>
+    </div>
+    <div class="ability" data-index="38">
+        <img src="/res/icons/Ability_Hunter_Quickshot.png" alt="">
+        <p><strong>Молниеносная реакция</strong> - После успешной атаки по тебе можешь передвинуться на 5 футов реакцией.</p>
+    </div>
+</div>
+
+<!-- Уровень 14 -->
+<div class="level" data-level="14">
+    <div class="ability" data-index="39">
+        <img src="/res/icons/Ability_Warrior_Charge.png" alt="">
+        <p><strong>Неудержимый натиск</strong> - Первая атака в бою (твоя или союзника) всегда совершается с преимуществом.</p>
+    </div>
+    <div class="ability" data-index="40">
+        <img src="/res/icons/INV_Helmet_45.png" alt="">
+        <p><strong>Непробиваемый череп</strong> - Иммунитет к оглушению и ошеломлению.</p>
+    </div>
+    <div class="ability" data-index="41">
+        <img src="/res/icons/Ability_Hunter_Pet_Raptor.png" alt="">
+        <p><strong>Смертельный прыжок</strong> - Можешь прыгнуть на 10 футов к врагу, совершая атаку с +2 к урону.</p>
+    </div>
+</div>
+
+<!-- Уровень 15 -->
+<div class="level" data-level="15">
+    <div class="ability" data-index="42">
+        <img src="/res/icons/Ability_Warrior_WarCry.png" alt="">
+        <p><strong>Боевой клич</strong> - Все союзники в радиусе 30 футов получают +2 к броскам атаки на 3 раунда (1/бой).</p>
+    </div>
+    <div class="ability" data-index="43">
+        <img src="/res/icons/INV_Bracer_17.png" alt="">
+        <p><strong>Возрождение берсерка</strong> - При падении до 0 ОЗ есть 25% шанс восстать с 1d12 ОЗ (1/день).</p>
+    </div>
+    <div class="ability" data-index="44">
+        <img src="/res/icons/Ability_Hunter_BeastCall.png" alt="">
+        <p><strong>Дух предков</strong> - Раз в день можешь полностью восстановить ОЗ вне боя, впадая в 1-часовой транс.</p>
+    </div>
+</div>
+<!-- Уровень 15 -->
+<div class="level" data-level="15">
+    <div class="ability" data-index="45">
+        <img src="/res/icons/FireRune.png" alt="">
+        <p><strong>Смертельный вихрь</strong> - В ярости атакуешь всех врагов в радиусе 10 футов (2d6 урона, 1/день).</p>
+    </div>
+    <div class="ability" data-index="46">
+        <img src="/res/icons/INV_Helmet_58.png" alt="">
+        <p><strong>Несокрушимая воля</strong> - Получаешь сопротивление психическому урону и иммунитет к испугу.</p>
+    </div>
+    <div class="ability" data-index="47">
+        <img src="/res/icons/Ability_Hunter_Pet_Wolf.png" alt="">
+        <p><strong>Стая охотников</strong> - При убийстве врага получаешь +10фт скорости передвижения на 3 раунда (эффект не складывается).</p>
+    </div>
+</div>
+
+<!-- Уровень 16 -->
+<div class="level" data-level="16">
+    <div class="ability" data-index="48">
+        <img src="/res/icons/FlashOfLight.png" alt="">
+        <p><strong>Вечная ярость</strong> - Время ярости не ограничено, но каждый ход после 5-го требует проверки Телосложения (DC 10+раунд).</p>
+    </div>
+    <div class="ability" data-index="49">
+        <img src="/res/icons/INV_Shoulder_29.png" alt="">
+        <p><strong>Титановая броня</strong> - Сопротивление ко всем физическим видам урона вне ярости.</p>
+    </div>
+    <div class="ability" data-index="50">
+        <img src="/res/icons/Ability_Hunter_SniperShot.png" alt="">
+        <p><strong>Смертельный инстинкт</strong> - Твоя первая атака в бою наносит тройной урон.</p>
+    </div>
+</div>
+
+<!-- Уровень 17 -->
+<div class="level" data-level="17">
+    <div class="ability" data-index="51">
+        <img src="/res/icons/Ability_Warrior_BattleShout.png" alt="">
+        <p><strong>Рев дракона</strong> - Все враги в радиусе 30 футов получают 3d6 урона звуком и должны пройти спасбросок или быть оглушены (1/день).</p>
+    </div>
+    <div class="ability" data-index="52">
+        <img src="/res/icons/INV_Chest_Plate13.png" alt="">
+        <p><strong>Сердце горы</strong> - Иммунитет к критическим попаданиям.</p>
+    </div>
+    <div class="ability" data-index="53">
+        <img src="/res/icons/HungerForBlood.png" alt="">
+        <p><strong>Глаз хищника</strong> - Видишь слабые места: +3 к броскам атаки против врагов с полным ОЗ.</p>
+    </div>
+</div>
+
+<!-- Уровень 18 -->
+<div class="level" data-level="18">
+    <div class="ability" data-index="54">
+        <img src="/res/icons/Ability_Warrior_Charge.png" alt="">
+        <p><strong>Удар судьбы</strong> - При критическом попадании есть 25% шанс мгновенно убить обычного врага (не работает против боссов).</p>
+    </div>
+    <div class="ability" data-index="55">
+        <img src="/res/icons/INV_Belt_27.png" alt="">
+        <p><strong>Регенерация титана</strong> - Восстанавливаешь 1d6 ОЗ каждый раунд в бою.</p>
+    </div>
+    <div class="ability" data-index="56">
+        <img src="/res/icons/Ability_Hunter_Pet_Raptor.png" alt="">
+        <p><strong>Прыжок ягуара</strong> - Можешь телепортироваться на 30 футов к видимому врагу (3/день).</p>
+    </div>
+</div>
+
+<!-- Уровень 19 -->
+<div class="level" data-level="19">
+    <div class="ability" data-index="57">
+        <img src="/res/icons/Ability_Warrior_SavageBlow.png" alt="">
+        <p><strong>Апокалипсис</strong> - Следующая атака в ярости наносит максимум урона (1/бой).</p>
+    </div>
+    <div class="ability" data-index="58">
+        <img src="/res/icons/INV_Shield_20.png" alt="">
+        <p><strong>Фениксово возрождение</strong> - При падении с 0 ОЗ автоматически восстанавливаешься с 50% ОЗ (1/неделю).</p>
+    </div>
+    <div class="ability" data-index="59">
+        <img src="/res/icons/Ability_Hunter_RunningShot.png" alt="">
+        <p><strong>Скорость ветра</strong> - Можешь совершить две дополнительные атаки при использовании действия "Атака" (3/день).</p>
+    </div>
+</div>
+
+            </div>
+            <button id="save">Сохранить</button>
+            </section>
+        </div>
+<script src="/js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const className = document.body.dataset.class; // Убедись, что <body> имеет data-class="warrior"
+    if (!className) {
+        console.error("Не указан класс персонажа!");
+        return;
+    }
+
+    const storageKey = `skillTree_${className}`;
+    let skills = localStorage.getItem(storageKey) ? localStorage.getItem(storageKey).split("").map(Number) : new Array(20).fill(0);
+
+    const levels = document.querySelectorAll(".level");
+
+    // Обновляет UI на основе текущих данных
+    function updateUI() {
+        levels.forEach((level, levelIndex) => {
+            level.querySelectorAll(".ability").forEach((ability, abilityIndex) => {
+                ability.classList.toggle("active", skills[levelIndex] === abilityIndex + 1);
+            });
+        });
+    }
+
+    // Выбор или отмена выбора умения
+    function handleSkillSelect(levelIndex, abilityIndex) {
+        if (skills[levelIndex] === abilityIndex + 1) {
+            skills[levelIndex] = 0; // Снимаем выбор
+        } else {
+            skills[levelIndex] = abilityIndex + 1; // Выбираем новое умение
+        }
+        updateUI();
+    }
+
+    // Назначаем обработчики событий на каждое умение
+    levels.forEach((level, levelIndex) => {
+        level.querySelectorAll(".ability").forEach((ability, abilityIndex) => {
+            ability.addEventListener("click", () => handleSkillSelect(levelIndex, abilityIndex));
+            ability.addEventListener("touchend", (event) => {
+                event.preventDefault(); // Убирает задержку на мобильных
+                handleSkillSelect(levelIndex, abilityIndex);
+            });
+        });
+    });
+
+    // Кнопка "Сохранить"
+    document.getElementById("save").addEventListener("click", () => {
+        localStorage.setItem(storageKey, skills.join("")); // Сохраняем как строку
+        alert("Умения сохранены!");
+    });
+
+    // Загружаем умения при старте
+    updateUI();
+});
+</script>
+</body>
+</html>
