@@ -50,14 +50,11 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 2px 2px 40px 0px rgba(148,144,139,1);
+    /*box-shadow: 2px 2px 40px 0px rgba(148,144,139,1);*/
     transition: 0.5s;
     overflow: hidden;
 }
 .class h4{
     width: 100%;
     text-align: center;
-}
-.class:hover{
-    box-shadow: 10px 10px 100px 0px rgba(148,144,139,1);
 }
