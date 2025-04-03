@@ -61,7 +61,7 @@ section .tree .level .ability:hover {
 }
 section .tree .level .ability p {
   position: absolute;
-  max-height: 300px;
+  max-height: 500px;
   bottom: 90%;
   left: 50%;
   transform: translateX(-50%);
