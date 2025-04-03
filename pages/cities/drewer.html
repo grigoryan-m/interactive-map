@@ -70,7 +70,7 @@
             alert("You clicked the map at " + e.latlng);
         }
 
-        map.on('click', onMapClick);
+        //map.on('click', onMapClick);
         map.addControl(new customControl());
         map.fitBounds(bounds);
         const street = new ImageMarker(4381, 3265, "../../res/drewer-pic.jpg");
