@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF–8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/class.css">
+    <script src="/js/header.js"></script>
+    <title>Жрец</title>
+</head>
+<html>
+    <body data-class="priest">
+
+        <div class="center">
+            <section class="">
+                <h2>Жрец</h2>
+                <div class="tree">
+                    <h4>Описания веток</h4>
+                    <div class="level">
+                        <div class="ability"><img src="/res/icons/questionmark.jpg" alt="">
+                        <p>Светоч Веры - исцеление и благословения</p></div>
+                        <div class="ability">
+                            <img src="/res/icons/questionmark.jpg" alt="">
+                            <p>Теневой Покров - темная магия и проклятия</p>
+                        </div>
+                        <div class="ability">
+                            <img src="/res/icons/questionmark.jpg" alt="">
+                            <p>Равновесие - баланс света и тьмы</p>
+                        </div>
+                    </div>
+                    <hr/>
+        
+                    <!-- Уровень 0 (1 уровень персонажа) -->
+                    <div class="level" data-level="0">
+                        <div class="ability" data-index="0">
+                            <img src="/res/icons/BlessedHands.png" alt="">
+                            <p><strong>Прикосновение Света</strong> - Исцеляет выбранное существо на 1d8 + модификатор Мудрости. Можно использовать 3 раза между продолжительными отдыхами.</p>
+                        </div>
+                        <div class="ability" data-index="1">
+                            <img src="/res/icons/Spell_Shadow_ShadowWordPain.png" alt="">
+                            <p><strong>Слово Тьмы: Боль</strong> - Накладывает проклятие на врага, нанося 1d6 урона в конце каждого его хода (до 3 раундов). Спасбросок Телосложения прерывает эффект.</p>
+                        </div>
+                        <div class="ability" data-index="2">
+                            <img src="/res/icons/DivineAegis.png" alt="">
+                            <p><strong>Щит Равновесия</strong> - Создает магический барьер, дающий +2 к КД и сопротивление свету/тьме на 1 минуту. Можно применить на себя или союзника.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Уровень 1 (2 уровень персонажа) -->
+                    <div class="level" data-level="1">
+                        <div class="ability" data-index="3">
+                            <img src="/res/icons/HolyNova.png" alt="">
+                            <p><strong>Священная Вспышка</strong> - Ослепляющая вспышка света наносит 1d6 урона нежити в радиусе 10 футов и лечит союзников на 1d4. Нежить совершает спасбросок Ловкости.</p>
+                        </div>
+                        <div class="ability" data-index="4">
+                            <img src="/res/icons/Spell_Shadow_AntiShadow.png" alt="">
+                            <p><strong>Теневой Шёпот</strong> - Шёпотом накладываете на врага эффект страха (1 раунд). Спасбросок Мудрости отменяет. Дистанция 30 футов.</p>
+                        </div>
+                        <div class="ability" data-index="5">
+                            <img src="/res/icons/Spell_Holy_InnerFire.png" alt="">
+                            <p><strong>Внутренний Огонь</strong> - Ваши атаки ближнего боя получают +1d4 светлого урона на 1 минуту. Можно активировать 2 раза в день.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Уровень 2 (3 уровень персонажа) -->
+                    <div class="level" data-level="2">
+                        <div class="ability" data-index="6">
+                            <img src="/res/icons/PrayerOfMending.png" alt="">
+                            <p><strong>Молитва Восстановления</strong> - Заклинание автоматически исцеляет союзника на 1d6 при получении им урона. Эффект срабатывает 3 раза за день.</p>
+                        </div>
+                        <div class="ability" data-index="7">
+                            <img src="/res/icons/Spell_Shadow_BlackPlague.png" alt="">
+                            <p><strong>Чумное Прикосновение</strong> - Ваше прикосновение наносит 1d8 некротического урона и накладывает на цель 1 итощение на 1 минуту.</p>
+                        </div>
+                        <div class="ability" data-index="8">
+                            <img src="/res/icons/Spell_Holy_SealOfWisdom.png" alt="">
+                            <p><strong>Печать Мудрости</strong> - Вы и союзники в радиусе 15 футов получают +1к4 к спасброскам Мудрости на 10 минут.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Уровень 3 (4 уровень персонажа) -->
+                    <div class="level" data-level="3">
+                        <div class="ability" data-index="9">
+                            <img src="/res/icons/Spell_Holy_Resurrection.png" alt="">
+                            <p><strong>Возрождающий Свет</strong> - Стабилизирует умирающее существо и восстанавливает 1 хип. Можно использовать даже в бою 1 раз в день.</p>
+                        </div>
+                        <div class="ability" data-index="10">
+                            <img src="/res/icons/Spell_Shadow_DeathCoil.png" alt="">
+                            <p><strong>Смертельная Петля</strong> - Теневые щупальца наносят 2d6 некротического урона и сковывают цель (половина скорости) на 2 раунда цели.</p>
+                        </div>
+                        <div class="ability" data-index="11">
+                            <img src="/res/icons/Spell_Holy_HolySmite.png" alt="">
+                            <p><strong>Кара Небес</strong> - Наносит 1d8 светлого урона врагу и 1d4 дополнительно нежити/демонам при попадании рукопашной атакой, или проваленом спасброске от заклинания.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Уровень 4 (5 уровень персонажа) -->
+                    <div class="level" data-level="4">
+                        <div class="ability" data-index="12">
+                            <img src="/res/icons/Spell_Holy_GuardianSpirit.png" alt="">
+                            <p><strong>Дух-Хранитель</strong> - Союзник получает +2 ко всем спасброскам и сопротивление к любому урону на 1 минуту. 1 раз в день.</p>
+                        </div>
+                        <div class="ability" data-index="13">
+                            <img src="/res/icons/Spell_Shadow_Shadowfiend.png" alt="">
+                            <p><strong>Призыв Теневого Демона</strong> - Призывает демона на 3 раунда (25 HP,14 КЗ, атака 1d6+2). Демон преследует выбранную цель.</p>
+                        </div>
+                        <div class="ability" data-index="14">
+                            <img src="/res/icons/Spell_Holy_DivineSpirit.png" alt="">
+                            <p><strong>Божественный Щит</strong> - Создает барьер, поглощающий 10 единиц урона любого типа. Действует 1 минуту или пока не разрушен (на себя, или союзника).</p>
+                        </div>
+                    </div>
+
+                <!-- Уровень 5 (6 уровень персонажа) -->
+                <div class="level" data-level="5">
+                    <div class="ability" data-index="15">
+                        <img src="/res/icons/Spell_Holy_PowerWordShield.png" alt="">
+                        <p><strong>Слово Силы: Щит</strong> - Накладывает на союзника магический щит, поглощающий 1d8 урона. Действует 1 час или пока не разрушен. 2 использования каждых 2 дня.</p>
+                    </div>
+                    <div class="ability" data-index="16">
+                        <img src="/res/icons/Spell_Shadow_AntiMagicShell.png" alt="">
+                        <p><strong>Антимагическая Оболочка</strong> - Даёт сопротивление магическому урону 50% реакцией. Только на себя. 1 раз между отдыхами.</p>
+                    </div>
+                    <div class="ability" data-index="17">
+                        <img src="/res/icons/Spell_Holy_SealOfWrath.png" alt="">
+                        <p><strong>Печать Возмездия</strong> - Ваши атаки ближнего боя наносят дополнительно 1d6 светлого или тёмного урона (по выбору) на 10 минут.</p>
+                    </div>
+                </div>
+
+                <!-- Уровень 6 (7 уровень персонажа) -->
+                <div class="level" data-level="6">
+                    <div class="ability" data-index="18">
+                        <img src="/res/icons/Spell_Holy_FlashHeal.png" alt="">
+                        <p><strong>Мгновенное Исцеление</strong> - Восстанавливает 2d8+Мудрость хитов мгновенно. Можно использовать в бою 2 раза в день.</p>
+                    </div>
+                    <div class="ability" data-index="19">
+                        <img src="/res/icons/Spell_Shadow_DeathScream.png" alt="">
+                        <p><strong>Крик Смерти</strong> - Все враги в радиусе 15 футов получают 1d6 некротического урона и -2 к атаке на 1 раунд. Спасбросок Телосложения.</p>
+                    </div>
+                    <div class="ability" data-index="20">
+                        <img src="/res/icons/Spell_Holy_Stoicism.png" alt="">
+                        <p><strong>Стойкость Духа</strong> - Даёт вам и союзникам в 15 футах +2 к спасброскам против страха и очарования на 1 час.</p>
+                    </div>
+                </div>
+
+                <!-- Уровень 7 (8 уровень персонажа) -->
+                <div class="level" data-level="7">
+                    <div class="ability" data-index="21">
+                        <img src="/res/icons/Spell_Holy_SummonLightwell.png" alt="">
+                        <p><strong>Светящийся Источник</strong> - Создаёт источник, исцеляющий союзников на 1d6 хитов при активации (3 заряда). Существует 10 минут.</p>
+                    </div>
+                    <div class="ability" data-index="22">
+                        <img src="/res/icons/Spell_Shadow_DemonicCirclet.png" alt="">
+                        <p><strong>Теневой Ореол</strong> - Окружает вас тьмой, давая +2 к КД против дальних атак 3 раунда.</p>
+                    </div>
+                    <div class="ability" data-index="23">
+                        <img src="/res/icons/Spell_Holy_ConsumeMagic.png" alt="">
+                        <p><strong>Поглощение Магии</strong> - Пытаетесь снять 1 магический эффект с врага или союзника. Проверка Мудрости против Сл заклинателя.</p>
+                    </div>
+                </div>
+
+                <!-- Уровень 8 (9 уровень персонажа) -->
+                <div class="level" data-level="8">
+                    <div class="ability" data-index="24">
+                        <img src="/res/icons/Spell_Holy_DivineHymn.png" alt="">
+                        <p><strong>Божественный Гимн</strong> - Медленно исцеляет всех союзников в радиусе 30 футов на 1d4 за раунд (3 раунда). Концентрация.</p>
+                    </div>
+                    <div class="ability" data-index="25">
+                        <img src="/res/icons/Spell_Shadow_ShadowMend.png" alt="">
+                        <p><strong>Теневое Восстановление</strong> - Исцеляет союзника на 2d8, но наносит 1d4 некротического урона вам. Можно использовать 3 раза.</p>
+                    </div>
+                    <div class="ability" data-index="26">
+                        <img src="/res/icons/Spell_Holy_Chastise.png" alt="">
+                        <p><strong>Небесная Кара</strong> - Наносит 2d8 светлого урона и оглушает нежить/демонов на 1 раунд. Спасбросок Мудрости.</p>
+                    </div>
+                </div>
+
+                <!-- Уровень 9 (10 уровень персонажа) -->
+                <div class="level" data-level="9">
+                    <div class="ability" data-index="27">
+                        <img src="/res/icons/Spell_Holy_GuardianSpirit.png" alt="">
+                        <p><strong>Духовное Возрождение</strong> - Когда союзник умирает, он восстанавливается с 1 хитом. Срабатывает 1 раз в 3 дня автоматически.</p>
+                    </div>
+                    <div class="ability" data-index="28">
+                        <img src="/res/icons/Spell_Shadow_ShadowWordDeath.png" alt="">
+                        <p><strong>Слово Тьмы: Смерть</strong> - Наносит 3d6 некротического урона. Если цель выживает, вы получаете 1d6 урона. Дистанция 60 футов.</p>
+                    </div>
+                    <div class="ability" data-index="29">
+                        <img src="/res/icons/Spell_Holy_PureOfHeart.png" alt="">
+                        <p><strong>Чистое Сердце</strong> - Даёт иммунитет к ядам и болезням на 24 часа вам и 1 союзнику. Также +2 КЗ против магии тьмы.</p>
+                    </div>
+                </div>
+
+                <!-- Уровень 10 (11 уровень персонажа) -->
+                <div class="level" data-level="10">
+                    <div class="ability" data-index="30">
+                        <img src="/res/icons/Spell_Holy_Renew.png" alt="">
+                        <p><strong>Обновление</strong> - Исцеляет цель на 1d8+Мудрость в конце каждого хода в течение 5 раундов. Можно поддерживать только на одном существе.</p>
+                    </div>
+                    <div class="ability" data-index="31">
+                        <img src="/res/icons/Spell_Shadow_UnstableAffliction.png" alt="">
+                        <p><strong>Нестабильное Наслаждение</strong> - Накладывает на врага проклятие, наносящее 1d8 урона светом каждый ход в течении 5ти минут. При снятии - взрыв на 2d6 урона.</p>
+                    </div>
+                    <div class="ability" data-index="32">
+                        <img src="/res/icons/Spell_Holy_SealOfBlood.png" alt="">
+                        <p><strong>Печать Жертвенности</strong> - Ваши исцеляющие заклинания восстанавливают на 50% больше, но вы получаете 25% от исцеленного урона (на 3 часа).</p>
+                    </div>
+                </div>
+                
+                <!-- Уровень 11 (12 уровень персонажа) -->
+                <div class="level" data-level="11">
+                    <div class="ability" data-index="33">
+                        <img src="/res/icons/Spell_Holy_CircleOfRenewal.png" alt="">
+                        <p><strong>Круг Восстановления</strong> - Создает 10-футовую зону, исцеляющую союзников на 1d4 в начале их хода. Длится 3 раунда.</p>
+                    </div>
+                    <div class="ability" data-index="34">
+                        <img src="/res/icons/Spell_Shadow_SoulLeech.png" alt="">
+                        <p><strong>Высасывание Души</strong> - Наносит цели 4d6 некротического урона и исцеляет вас на половину нанесенного урона. Дистанция 30 футов.</p>
+                    </div>
+                    <div class="ability" data-index="35">
+                        <img src="/res/icons/Spell_Holy_ChampionsGrace.png" alt="">
+                        <p><strong>Благодать Чемпиона</strong> - Увеличивает максимальное здоровье выбранного союзника на 1d10+Мудрость на 1 час.</p>
+                    </div>
+                </div>
+                
+                <!-- Уровень 12 (13 уровень персонажа) -->
+                <div class="level" data-level="12">
+                    <div class="ability" data-index="36">
+                        <img src="/res/icons/Spell_Holy_Resurrection.png" alt="">
+                        <p><strong>Воскрешение</strong> - Возвращает мертвого союзника к жизни с 25% хитов. Можно использовать 1 раз в неделю.</p>
+                    </div>
+                    <div class="ability" data-index="37">
+                        <img src="/res/icons/Spell_Shadow_DarkReprimand.png" alt="">
+                        <p><strong>Темное Вразумление</strong> - Наносит 3d6 урона тьмой и замедляет цель на 50% на 2 раунда. Спасбросок Мудрости.</p>
+                    </div>
+                    <div class="ability" data-index="38">
+                        <img src="/res/icons/Spell_Holy_HolyNova.png" alt="">
+                        <p><strong>Священный Взрыв</strong> - Наносит 2d6 светлого урона врагам и исцеляет союзников на 1d8 в радиусе 15 футов. 1 раз в день.</p>
+                    </div>
+                </div>
+                
+                <!-- Уровень 13 (14 уровень персонажа) -->
+                <div class="level" data-level="13">
+                    <div class="ability" data-index="39">
+                        <img src="/res/icons/Spell_Holy_AngelicFeather.png" alt="">
+                        <p><strong>Ангельское Перо</strong> - Помещает перо на землю, дающее +15 к скорости передвижения при прохождении через него. 3 использования.</p>
+                    </div>
+                    <div class="ability" data-index="40">
+                        <img src="/res/icons/Spell_Shadow_MindFlay.png" alt="">
+                        <p><strong>Взрыв Разума</strong> - Наносит 1d8 урона каждый раунд и снижает интеллект цели на 1d4 на 3 раунда. Концентрация.</p>
+                    </div>
+                    <div class="ability" data-index="41">
+                        <img src="/res/icons/Spell_Holy_Persecution.png" alt="">
+                        <p><strong>Божественное Преследование</strong> - Ваши атаки игнорируют 5 пунктов КЗ у демонов и нежити на 10 минут.</p>
+                    </div>
+                </div>
+                
+                <!-- Уровень 14 (15 уровень персонажа) -->
+                <div class="level" data-level="14">
+                    <div class="ability" data-index="42">
+                        <img src="/res/icons/Spell_Holy_TestOfFaith.png" alt="">
+                        <p><strong>Испытание Веры</strong> - Увеличивает все исцеление на 30% на следующее заклинание. Перезарядка 5 раундов, или продолжительный отдых.</p>
+                    </div>
+                    <div class="ability" data-index="43">
+                        <img src="/res/icons/Spell_Shadow_Shadowfury.png" alt="">
+                        <p><strong>Теневая Ярость</strong> - Оглушает всех врагов в 10-футовом радиусе на 1 раунд. Спасбросок Телосложения. 1 раз в день.</p>
+                    </div>
+                    <div class="ability" data-index="44">
+                        <img src="/res/icons/Spell_Holy_SealOfValor.png" alt="">
+                        <p><strong>Печать Доблести</strong> - Дает вам и союзникам в 20 футах +2 к атаке и урону против демонов и нежити на 10 минут.</p>
+                    </div>
+                </div>
+
+                <!-- Уровень 15 (16 уровень персонажа) -->
+                <div class="level" data-level="15">
+                    <div class="ability" data-index="45">
+                        <img src="/res/icons/Spell_Holy_DivineProvidence.png" alt="">
+                        <p><strong>Божественное Провидение</strong> - Следующее исцеляющее заклинание срабатывает на 50% сильнее. Перезарядка 1 день.</p>
+                    </div>
+                    <div class="ability" data-index="46">
+                        <img src="/res/icons/Spell_Shadow_ShadowWordBane.png" alt="">
+                        <p><strong>Проклятие Рока</strong> - Уменьшает все характеристики цели на 1d8 на 1 минуту. Спасбросок Мудрости каждые 2 раунда.</p>
+                    </div>
+                    <div class="ability" data-index="47">
+                        <img src="/res/icons/Spell_Holy_PrayerOfFortitude.png" alt="">
+                        <p><strong>Молитва Стойкости</strong> - Увеличивает максимальное здоровье всей группы на 15% на 2 часа.</p>
+                    </div>
+                </div>
+
+                <!-- Уровень 16 (17 уровень персонажа) -->
+                <div class="level" data-level="16">
+                    <div class="ability" data-index="48">
+                        <img src="/res/icons/Spell_Holy_ReviveChampion.png" alt="">
+                        <p><strong>Возрождение Чемпиона</strong> - Воскрешает союзника с 50% здоровья и маны. Можно использовать 1 раз в 3 дня.</p>
+                    </div>
+                    <div class="ability" data-index="49">
+                        <img src="/res/icons/Spell_Shadow_DemonicEmpathy.png" alt="">
+                        <p><strong>Демоническое Сочувствие</strong> - Перенаправляет 50% получаемого вами урона на выбранного демона/нежить на 3 раунда.</p>
+                    </div>
+                    <div class="ability" data-index="50">
+                        <img src="/res/icons/Spell_Holy_AuraOfLight.png" alt="">
+                        <p><strong>Аура Света</strong> - Ослабляет нежить в радиусе 30 футов (-2 к атаке и урону). Действует 1 день, перезарядка каждых 3 дня.</p>
+                    </div>
+                </div>
+
+                <!-- Уровень 17 (18 уровень персонажа) -->
+                <div class="level" data-level="17">
+                    <div class="ability" data-index="51">
+                        <img src="/res/icons/Spell_Holy_GreaterHeal.png" alt="">
+                        <p><strong>Великое Исцеление</strong> - Восстанавливает 5к10+Мудрость хитов. Кастуется 2 раунда. 2 использования в день.</p>
+                    </div>
+                    <div class="ability" data-index="52">
+                        <img src="/res/icons/Spell_Shadow_Shadowform.png" alt="">
+                        <p><strong>Теневая Форма</strong> - Увеличивает весь урон группы на 4к8. Длится 5 минут.</p>
+                    </div>
+                    <div class="ability" data-index="53">
+                        <img src="/res/icons/Spell_Holy_ChromaticProtection.png" alt="">
+                        <p><strong>Хроматическая Защита</strong> - Дает сопротивление 3к6 ко всем видам магического урона на 1 час.</p>
+                    </div>
+                </div>
+
+                <!-- Уровень 18 (19 уровень персонажа) -->
+                <div class="level" data-level="18">
+                    <div class="ability" data-index="54">
+                        <img src="/res/icons/Spell_Holy_GuardianSpirit.png" alt="">
+                        <p><strong>Дух Хранителя</strong> - Предотвращает смерть союзника 1 раз, восстанавливая 50% здоровья при смертельном ударе. 1 раз в 2 деня.</p>
+                    </div>
+                    <div class="ability" data-index="55">
+                        <img src="/res/icons/Spell_Shadow_Requiem.png" alt="">
+                        <p><strong>Реквием</strong> - Все враги в 20-футовом радиусе получают 6d6+6 некротического урона и дезориентируются на 1 раунд.</p>
+                    </div>
+                    <div class="ability" data-index="56">
+                        <img src="/res/icons/Spell_Holy_HarmoniousChakra.png" alt="">
+                        <p><strong>Гармония Чакр</strong> - Снимает все проклятия и болезни с группы и дает иммунитет от заклинаний контроля на 1 минуту.</p>
+                    </div>
+                </div>
+
+                <!-- Уровень 19 (20 уровень персонажа) -->
+                <div class="level" data-level="19">
+                    <div class="ability" data-index="57">
+                        <img src="/res/icons/Spell_Holy_Apotheosis.png" alt="">
+                        <p><strong>Апофеоз</strong> - На 10 минут ваши светлые заклинания действуют на 100% сильнее. 1 раз в 3 дня.</p>
+                    </div>
+                    <div class="ability" data-index="58">
+                        <img src="/res/icons/Spell_Shadow_NetherCloak.png" alt="">
+                        <p><strong>Плащ Пустоты</strong> - Дает 50% сопротивление ко всем видам магии и +10 к спасброскам на день.</p>
+                    </div>
+                    <div class="ability" data-index="59">
+                        <img src="/res/icons/Spell_Holy_ArcaneSanctity.png" alt="">
+                        <p><strong>Святая Аркана</strong> - Ваши заклинания игнорируют 50% магического сопротивления целей.</p>
+                    </div>
+                </div>
+            </div>
+            <button id="save">Сохранить</button>
+        </section>
+        </div>
+    <script src="/js/main.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const className = document.body.dataset.class; // Убедись, что <body> имеет data-class="warrior"
+        if (!className) {
+            console.error("Не указан класс персонажа!");
+            return;
+        }
+
+        const storageKey = `skillTree_${className}`;
+        let skills = localStorage.getItem(storageKey) ? localStorage.getItem(storageKey).split("").map(Number) : new Array(20).fill(0);
+
+        const levels = document.querySelectorAll(".level");
+
+        // Обновляет UI на основе текущих данных
+        function updateUI() {
+            levels.forEach((level, levelIndex) => {
+                level.querySelectorAll(".ability").forEach((ability, abilityIndex) => {
+                    ability.classList.toggle("active", skills[levelIndex] === abilityIndex + 1);
+                });
+            });
+        }
+
+        // Выбор или отмена выбора умения
+        function handleSkillSelect(levelIndex, abilityIndex) {
+            if (skills[levelIndex] === abilityIndex + 1) {
+                skills[levelIndex] = 0; // Снимаем выбор
+            } else {
+                skills[levelIndex] = abilityIndex + 1; // Выбираем новое умение
+            }
+            updateUI();
+        }
+
+        // Назначаем обработчики событий на каждое умение
+        levels.forEach((level, levelIndex) => {
+            level.querySelectorAll(".ability").forEach((ability, abilityIndex) => {
+                ability.addEventListener("click", () => handleSkillSelect(levelIndex, abilityIndex));
+                ability.addEventListener("touchend", (event) => {
+                    event.preventDefault(); // Убирает задержку на мобильных
+                    handleSkillSelect(levelIndex, abilityIndex);
+                });
+            });
+        });
+
+        // Кнопка "Сохранить"
+        document.getElementById("save").addEventListener("click", () => {
+            localStorage.setItem(storageKey, skills.join("")); // Сохраняем как строку
+            alert("Умения сохранены!");
+        });
+
+        // Загружаем умения при старте
+        updateUI();
+    });
+    </script>
+    </body>
+</html>
