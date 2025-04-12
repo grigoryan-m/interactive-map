@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     <li><a href="/pages/trees.html">Классы</a></li>
                     <li><a href="/pages/races.html">Расы</a></li>
                     <li><a href="/pages/currencies.html">Валюты</a></li>
+                    <li><a href="/pages/backgrounds.html">Предыстории</a></li>
+                    <li><a href="/pages/secrets.html">Секреты</a></li>
                 </ul>
             </nav>
         </header>

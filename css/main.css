@@ -1,8 +1,9 @@
-h2{
-    font-family: 'Alegreya SC';
+h2, h1{
     text-align: center;
 }
 body{
     background-color: #A2A2D0;
+    
+    font-family: 'Alegreya SC';
 }
     
