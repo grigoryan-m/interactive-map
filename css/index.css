@@ -1,0 +1,21 @@
+*{
+    font-family: "Alegreya SC", serif;
+}
+h1{
+    text-align: center;
+}
+b {
+    background: linear-gradient(90deg, #ff7a00, #ff007f, #00c4ff, #7a00ff);
+    background-size: 400%;
+    color: transparent;
+    background-clip: text;
+    animation: colorAnimation 12s infinite linear;
+}
+
+@keyframes colorAnimation {
+    0% { background-position: 0%; }
+    25% { background-position: 100%; }
+    50% { background-position: 200%; }
+    75% { background-position: 300%; }
+    100% { background-position: 0%; }
+}
