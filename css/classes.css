@@ -39,6 +39,7 @@ h1{
 }
 .class{
     width: 410px;
+    max-width: calc(100vw - 50px);
     height: 110px;
     background-color: #ece4d9;
     border-radius: 5px;
