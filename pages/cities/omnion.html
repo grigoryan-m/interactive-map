@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
-    <link rel="stylesheet" href="../../css/defaultmap.css" type="text/css" />
+    <link rel="stylesheet" href="/css/defaultmap.css" type="text/css" />
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
 <body>
     <div id="map"></div>
 </body>
-    <script src="../../js/main.js"></script>
+    <script src="/js/main.js"></script>
     <script>
         class Marker{
             constructor(lat, lng, cityName, pageName){
@@ -42,7 +42,7 @@
             maxBounds: bounds,
             maxBoundsViscosity: 1.0
         });
-        var image = L.imageOverlay('../../res/omnion.png', bounds).addTo(map);
+        var image = L.imageOverlay('/res/omnion.png', bounds).addTo(map);
         var customControl = L.Control.extend({
             options: {
                 position: "topleft"
@@ -73,8 +73,8 @@
         //map.on('click', onMapClick);
         map.addControl(new customControl());
         map.fitBounds(bounds);
-        const street = new ImageMarker(4034, 2153, "../../res/omnion-pic.jpg");
+        const street = new ImageMarker(4034, 2153, "/res/omnion-pic.jpg");
     </script>
     
-    <script src="../../js/main.js"></script>
+    <script src="/js/main.js"></script>
 </html>
