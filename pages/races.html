@@ -51,7 +51,7 @@
             data.slice(1).forEach(row => { // Пропускаем заголовки
                 if (row[0] && row[1]) { // Проверяем, что есть ID и название расы
                     const link = document.createElement("a");
-                    link.href = `/pages/templates/race.html?name=${row[0]}`;
+                    link.href = `pages/templates/race.html?name=${row[0]}`;
 
                     const outerDiv = document.createElement("div");
                     outerDiv.classList.add("race");
@@ -60,7 +60,7 @@
                     h.textContent = row[1]; // Название расы
 
                     const img = document.createElement("img");
-                    img.src = `/res/races/${row[0]}-icon.png`;
+                    img.src = `res/races/${row[0]}-icon.png`;
                     img.height = 150;
                     img.alt = row[1];
 
