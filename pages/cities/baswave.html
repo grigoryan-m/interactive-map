@@ -11,16 +11,17 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
-    <link rel="stylesheet" href="/css/defaultmap.css" type="text/css" />
-    <link rel="stylesheet" href="../css/style.css">
+    <base href="https://grigoryan-m.github.io/interactive-map/" />
+    <link rel="stylesheet" href="css/defaultmap.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="map"></div>
 </body>
-    <script src="/js/main.js"></script>
+    <script src="js/main.js"></script>
     <script>
         class Marker{
             constructor(lat, lng, cityName, pageName){
@@ -73,7 +74,7 @@
         //map.on('click', onMapClick);
         map.addControl(new customControl());
         map.fitBounds(bounds);
-        const street = new ImageMarker(4321, 1794, "/res/baswave-pic.jpg");
+        const street = new ImageMarker(4321, 1794, "res/baswave-pic.jpg");
     </script>
     
     <script src="/js/main.js"></script>
