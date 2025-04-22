@@ -43,7 +43,7 @@
             maxBounds: bounds,
             maxBoundsViscosity: 1.0
         });
-        var image = L.imageOverlay('/res/baswave.png', bounds).addTo(map);
+        var image = L.imageOverlay('res/baswave.png', bounds).addTo(map);
         var customControl = L.Control.extend({
             options: {
                 position: "topleft"
@@ -77,5 +77,5 @@
         const street = new ImageMarker(4321, 1794, "res/baswave-pic.jpg");
     </script>
     
-    <script src="/js/main.js"></script>
+    <script src="js/main.js"></script>
 </html>
