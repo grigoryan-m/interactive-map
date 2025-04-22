@@ -15,7 +15,54 @@
 
 <body>
     <h1>Добро пожаловать в <b>Элдрос</b>!</h1>
-    <p>1301 год, 19 Апреля</p>
+    <p class="date">Аттар Скиталец был тут</p>
+
+
+    <script>
+        async function fetchDataFromSheet() {
+    const sheetId = '1aSzBF6kk2mosfcvXwW0mQoLpjDj0EezBce1EVeaUfGE';  // Замените на ваш ID таблицы
+    const apiKey = 'AIzaSyBet-4RBihA9gLkAm_dlTQPqHmaErfcuGE';     // Замените на ваш API ключ
+    const range = 'Info';              // Диапазон данных в таблице (например, лист "Расы")
+
+    // URL для запроса данных из Google Sheets
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+    
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.values; // Возвращает все строки из таблицы
+}
+
+// Функция для обновления HTML с данными из таблицы
+async function updatePage() {
+
+
+    const data = await fetchDataFromSheet();
+    const headers = data[0]; // Заголовки колонок
+    if (!data || !Array.isArray(data)) {
+        console.error("Ошибка: данные из Google Sheets не загружены или имеют неверный формат", data);
+        return;
+    }
+    console.log("Заголовки из таблицы:", headers);
+    // Поиск строки, которая соответствует переданному name
+    const row = data.find(row => row[0] && row[0].toLowerCase() === "дата");
+
+    if (!row) {
+        console.error(`Ошибка: дата не найдена в таблице`);
+        return;
+    }
+
+
+    if (row) {
+        // Заполняем данные на странице
+        document.querySelector('.date').textContent = row[1];
+        // Обрабатываем способности (abilities)
+    }
+}
+
+// Запуск обновления страницы при загрузке
+window.onload = updatePage;
+
+    </script>
 </body>
 
 </html>
