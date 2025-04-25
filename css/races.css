@@ -20,6 +20,7 @@ body {
     color: white;
 
     padding: 20px;
+    margin-bottom: 20px;
 }
 
 h1{
@@ -38,7 +39,8 @@ h1{
     gap: 120px;
 }
 .race{
-    width: 410px;
+    max-width: 410px;
+    width: calc(100vw - 40px);
     height: 110px;
     background-color: #ece4d9;
     border-radius: 5px;

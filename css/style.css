@@ -32,6 +32,7 @@ header nav ul {
   align-items: center;
   gap: 20px;
   font-size: 18px;
+  padding-inline-start: 0px !important;
 }
 header nav ul a {
   color: white;
