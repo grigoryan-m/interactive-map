@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <li><a href="/interactive-map/pages/trees.html">Классы</a></li>
                     <li><a href="/interactive-map/pages/races.html">Расы</a></li>
                     <li><a href="/interactive-map/pages/currencies.html">Валюты</a></li>
-                    <li><a href="/interactive-map/pages/secrets.html">Секреты</a></li>
+                    <li><a href="/interactive-map/pages/secrets.html">Достижения</a></li>
                 </ul>
             </nav>
         </header>
