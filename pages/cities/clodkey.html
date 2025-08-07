@@ -71,7 +71,7 @@
             alert("You clicked the map at " + e.latlng);
         }
 
-        //map.on('click', onMapClick);
+        map.on('click', onMapClick);
         map.addControl(new customControl());
         map.fitBounds(bounds);
         const street = new ImageMarker(1642, 3761, "res/clodkey-pic.jpg");
