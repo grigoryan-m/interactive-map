@@ -1,4 +1,4 @@
-const prefix = window.location.hostname === 'grigoryan-m.github.io' ? '/interactive-map' : '';
+const prefix = window.location.hostname === 'waldm4rk.github.io' ? '/interactive-map' : '';
 
   // Функция для изменения всех src атрибутов на страницы
   document.querySelectorAll('[src]').forEach((el) => {
